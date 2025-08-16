@@ -1,27 +1,125 @@
-# Full-Stack Form Builder Application
+Full-Stack Form Builder Application
+Overview
 
-## Overview
-This project is a full-stack MERN application with Tailwind CSS for building, previewing, and filling customizable forms. It supports multiple question types and saves responses to MongoDB. The UI is inspired by modern form builders such as Typeform, but implemented with a custom design.  
+This project is a full-stack MERN application with Tailwind CSS for building, previewing, and filling customizable forms. It supports multiple question types and saves responses to MongoDB. The UI is inspired by modern form builders such as Typeform, but implemented with a custom design.
 
-## Features
-- Form Builder Dashboard to create and edit forms  
-- Add a form title and header image  
-- Support for three question types:  
-  - Categorize (options sorted into categories)  
-  - Cloze (fill-in-the-blanks)  
-  - Comprehension (reading passage with multiple choice)  
-- Add optional images to individual questions  
-- Preview link for form filling (`/form/:id`)  
-- Responses saved in MongoDB  
-- Responsive, clean UI built with Tailwind CSS  
+Features
 
-## Tech Stack
-- Frontend: React (Vite), Tailwind CSS, Axios  
-- Backend: Node.js, Express.js  
-- Database: MongoDB Atlas  
-- Deployment:  
-  - Frontend: Vercel / Netlify  
-  - Backend: Render  
-  - Database: MongoDB Atlas  
+Form Builder Dashboard to create and edit forms
 
-## Project Structure
+Add a form title and header image
+
+Support for three question types:
+
+Categorize (options sorted into categories)
+
+Cloze (fill-in-the-blanks)
+
+Comprehension (reading passage with multiple choice)
+
+Add optional images to individual questions
+
+Preview link for form filling (/form/:id)
+
+Responses saved in MongoDB
+
+Responsive, clean UI built with Tailwind CSS
+
+Tech Stack
+
+Frontend: React (Vite), Tailwind CSS, Axios
+
+Backend: Node.js, Express.js
+
+Database: MongoDB Atlas
+
+Deployment:
+
+Frontend: Vercel / Netlify
+
+Backend: Render
+
+Database: MongoDB Atlas
+
+Project Structure
+form-builder/
+ ┣ backend/         # Express + MongoDB API
+ ┃ ┣ server.js
+ ┃ ┣ models/Form.js
+ ┃ ┣ models/Response.js
+ ┣ frontend/        # React + Tailwind app
+ ┃ ┣ src/components
+ ┃ ┣ src/pages
+ ┃ ┣ src/App.jsx
+ ┣ README.md
+
+Database Schema
+
+Form Schema
+
+{
+  title: String,
+  headerImage: String,
+  questions: [
+    {
+      type: String,   // "categorize", "cloze", "comprehension"
+      text: String,
+      image: String,
+      options: [String],
+      answer: Mixed
+    }
+  ]
+}
+
+
+Response Schema
+
+{
+  formId: ObjectId,
+  answers: Mixed
+}
+
+API Endpoints
+
+POST /api/forms → Create new form
+
+GET /api/forms/:id → Fetch form by ID
+
+POST /api/responses → Save user responses
+
+Installation and Setup
+Clone Repository
+git clone https://github.com/<your-username>/form-builder.git
+cd form-builder
+
+Backend Setup
+cd backend
+cp .env.example .env   # Add MongoDB URI and other env variables
+npm install
+npm start
+
+Frontend Setup
+cd ../frontend
+cp .env.example .env   # Set VITE_API_URL to your backend URL
+npm install
+npm run dev
+
+Deployment
+
+Frontend: Deploy using Vercel or Netlify (set VITE_API_URL in environment variables).
+
+Backend: Deploy using Render (set MONGO_URI and CORS_ORIGIN in environment variables).
+
+Database: Use MongoDB Atlas for cloud database.
+
+Learning Outcomes
+
+Hands-on experience with MERN stack development
+
+Dynamic form schema design with Mongoose
+
+REST API implementation with Express
+
+Deployment using cloud services (Vercel, Render, MongoDB Atlas)
+
+Building modern, responsive UIs with Tailwind CSS
