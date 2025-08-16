@@ -36,7 +36,6 @@ form-builder/
 ┃ ┣ src/App.jsx
 ┣ README.md
 
-
 ## Database Schema
 
 **Form Schema**
@@ -54,47 +53,55 @@ form-builder/
     }
   ]
 }
-Response Schema
-```
+```js
 
 {
   formId: ObjectId,
   answers: Mixed
 }
-API Endpoints
-POST /api/forms → Create new form
 
-GET /api/forms/:id → Fetch form by ID
+## API Endpoints
 
-POST /api/responses → Save user responses
+1. POST /api/forms → Create new form
+2. GET /api/forms/:id → Fetch form by ID
+3. POST /api/responses → Save user responses
 
-Installation and Setup
-Clone Repository
+## Installation and Setup
+## Clone Repository
 
+```
 git clone https://github.com/<your-username>/form-builder.git
 cd form-builder
-##Backend Setup##
+```
 
+## Backend Setup
+```
 cd backend
 cp .env.example .env   # Add MongoDB URI and other env variables
 npm install
 npm start
-## Frontend Setup
+```
 
+## Frontend setup
+
+```
 cd ../frontend
 cp .env.example .env   # Set VITE_API_URL to your backend URL
 npm install
 npm run dev
-Deployment
-##Frontend##: Deploy using Vercel or Netlify (set VITE_API_URL in environment variables).
 
-##Backend##: Deploy using Render (set MONGO_URI and CORS_ORIGIN in environment variables).
+```
 
-##Database##: Use MongoDB Atlas for cloud database.
+##Deployment
+
+1. Frontend: Deploy using Vercel or Netlify (set VITE_API_URL in environment variables).
+2. Backend: Deploy using Render (set MONGO_URI and CORS_ORIGIN in environment variables).
+3. Database: Use MongoDB Atlas for cloud database.
 
 ##Learning Outcomes
-Hands-on experience with MERN stack development
-Dynamic form schema design with Mongoose
-REST API implementation with Express
-Deployment using cloud services (Vercel, Render, MongoDB Atlas)
-Building modern, responsive UIs with Tailwind CSS
+
+1. Hands-on experience with MERN stack development
+2. Dynamic form schema design with Mongoose
+3. REST API implementation with Express
+4. Deployment using cloud services (Vercel, Render, MongoDB Atlas)
+5. Building modern, responsive UIs with Tailwind CSS
